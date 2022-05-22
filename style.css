@@ -20,7 +20,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 20px 20px 0 rgba(252,169,169,0.6);
     display: flex;
-    padding: 20px 30px;
+    padding: 20px 20px;
     position: relative;
     margin: 100px 0;
     z-index: 10;
@@ -69,8 +69,32 @@ body {
     }
 }
 
+
+.volume-container{
+    /* background-color: #282123;
+    border-radius: 5px;
+    height: 10px;
+    width: 50px;   
+    z-index: 1; */
+    background: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin:  10px 0;
+    width: 80%;
+    height: 4px;
+}
+
+.volume {
+    background-color: #fe8daa;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+}
+
 .navigation {
     display: flex;
+    flex-direction: column;
+    gap: 10px;
     align-items: center;
     justify-content: center;
     z-index: 1;

@@ -4,13 +4,14 @@ const prevBtn = document.querySelector('#prev')
 const nextBtn = document.querySelector('#next')
 const progress = document.querySelector('.progress')
 const progressContainer = document.querySelector('.progress-container')
+const volumeContainer = document.querySelector('.volume-container')
 const title = document.querySelector('#title')
 const cover = document.querySelector('#cover')
 
 const songs = ['Efecto', 'Enséñame a Bailar', 'Me Fui de Vacaciones', 'Me Porto Bonito', 'Neverita', 'Ojitos Lindos', 'Otro Atardecer','Party', 'Un Ratito', 'Un Verano Sin Ti']
 
 let songIndex = 0
-
+audio.volume = .4
 loadSong(songs[songIndex])
 
 function loadSong(song){
@@ -66,6 +67,11 @@ function setProgress(e) {
     audio.currentTime = (clickX / width) * duration
 }
 
+function setVolume(e){
+    const clickX = e.offsetX
+    audio.volume = (clickX / 2) / 100
+
+}
 playBtn.addEventListener('click', () => {
   const isPlaying = musicContainer.classList.contains('play')
 
@@ -80,6 +86,7 @@ prevBtn.addEventListener('click', prevSong)
 nextBtn.addEventListener('click', nextSong)
 
 audio.addEventListener('timeupdate',updateProgress)
+volumeContainer.addEventListener('click', setVolume)
 
 progressContainer.addEventListener('click', setProgress)
 
