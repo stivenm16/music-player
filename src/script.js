@@ -4,6 +4,7 @@ const prevBtn = document.querySelector('#prev')
 const nextBtn = document.querySelector('#next')
 const progress = document.querySelector('.progress')
 const progressContainer = document.querySelector('.progress-container')
+const volume = document.querySelector('.volume')
 const volumeContainer = document.querySelector('.volume-container')
 const title = document.querySelector('#title')
 const cover = document.querySelector('#cover')
@@ -67,6 +68,11 @@ function setProgress(e) {
     audio.currentTime = (clickX / width) * duration
 }
 
+function updateVolume(e) {
+    const vol = audio.volume * 100
+    volume.style.width = `${vol}%`
+}
+
 function setVolume(e){
     const clickX = e.offsetX
     audio.volume = (clickX / 2) / 100
@@ -86,8 +92,8 @@ prevBtn.addEventListener('click', prevSong)
 nextBtn.addEventListener('click', nextSong)
 
 audio.addEventListener('timeupdate',updateProgress)
+volumeContainer.addEventListener('click', updateVolume)
 volumeContainer.addEventListener('click', setVolume)
-
 progressContainer.addEventListener('click', setProgress)
 
 audio.addEventListener('ended', nextSong)
